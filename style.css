@@ -405,3 +405,4 @@ fieldset input:focus-visible+span{outline:2px solid var(--pine);outline-offset:2
 #showbody .mytake{margin-top:24px}
 .face.back i{display:block;margin-top:.45em;font:500 .8rem/1.35 var(--hand);font-style:normal;color:var(--ink)}
 .flip,.flip-in{height:100%}
+.face.back .kind{font-style:normal;font-weight:400}

@@ -216,7 +216,7 @@
   document.getElementById("cards").innerHTML = Object.keys(LABELS).map(function (k) {
     var r = SITE.myRecs[k] || {};
     var name = r.link ? '<a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.title) + "</a>" : esc(r.title);
-    var back = r.title ? "<b>" + name + "</b>" + (r.by ? "<span>" + esc(r.by) + "</span>" : "") + (r.note ? "<i>" + esc(r.note) + "</i>" : "") : "<b>Still deciding</b>";
+    var back = r.title ? "<b>" + (r.kind ? '<em class="kind">' + esc(r.kind) + ":</em> " : "") + name + "</b>" + (r.by ? "<span>" + esc(r.by) + "</span>" : "") + (r.note ? "<i>" + esc(r.note) + "</i>" : "") : "<b>Still deciding</b>";
     return '<button class="flip" type="button" aria-pressed="false" aria-label="My ' + LABELS[k][0].toLowerCase() + ' pick"><span class="flip-in"><span class="face front">' + LABELS[k][0] + '</span><span class="face back">' + back + "</span></span></button>";
   }).join("");
   document.querySelectorAll(".flip").forEach(function (b) {

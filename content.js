@@ -31,7 +31,7 @@ const SITE = {
   // "note" is a short line about why. "link" is optional and makes the title clickable.
   myRecs: {
     book:  { title: "The Silent Patient", by: "Alex Michaelides", note: "My favorite book I've read in 2026. Keeps you on your toes.", link: "" },
-    music: { title: "Sylvie", by: "Band", note: "I love their Laurel Canyon, '70s-esque sound. Their self-titled album is my fav, but their new one is great too.", link: "" },
+    music: { kind: "Band", title: "Sylvie", by: "", note: "I love their Laurel Canyon, '70s-esque sound. Their self-titled album is my fav, but their new one is great too.", link: "" },
     film:  { title: "The Way Way Back", by: "", note: "Got a lot of love for this movie and its soundtrack.", link: "" },
   },
 
