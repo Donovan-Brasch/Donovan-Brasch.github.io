@@ -25,7 +25,7 @@ const SITE = {
 
   // Where recommendations get sent. Paste your Formspree form link here,
   // like "https://formspree.io/f/abcdwxyz". Until then the form won't send.
-  recsEndpoint: "",
+  recsEndpoint: "https://formspree.io/f/xrppwenl",
 
   // Your picks, shown on the three flip cards.
   // "note" is a short line about why. "link" is optional and makes the title clickable.
