@@ -409,8 +409,8 @@ fieldset input:focus-visible+span{outline:2px solid var(--pine);outline-offset:2
 .snaphint span{display:block}.snaphint .me-hint{margin-bottom:6px;color:var(--ink)}
 html,body{overflow-x:clip}
 /* Ceramics: one photo at a time */
-.shelf.carousel{display:block;position:relative;width:min(100%,460px,calc((100svh - 360px)*.8));margin:6px auto 0;outline:none}
-.slides{position:relative;aspect-ratio:4/5;border:1.5px solid var(--ink);border-radius:8px;overflow:hidden;background:#E9E3D6}
+.shelf.carousel{display:block;position:relative;width:min(100%,340px);margin:6px auto 0;outline:none}
+.slides{position:relative;aspect-ratio:1;border:1.5px solid var(--ink);border-radius:8px;overflow:hidden;background:#E9E3D6}
 .slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .3s ease;pointer-events:none}
 .slide.on{opacity:1;pointer-events:auto}
 .slide img{display:block;width:100%;height:100%;object-fit:cover}
