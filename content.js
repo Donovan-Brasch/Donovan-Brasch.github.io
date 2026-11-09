@@ -5,7 +5,6 @@ const SITE = {
   // Paste each profile link between the quotes. An icon stays faded until it has a link.
   linkedin: "https://www.linkedin.com/in/donovan-brasch-b08104271",
   spotify: "https://open.spotify.com/playlist/4ykpWTcndHS75SN3dr36h5",
-  youtube: "",
 
   backOHouse: "https://backohouse.com",
 
