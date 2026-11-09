@@ -463,3 +463,4 @@ html,body{overflow-x:clip}
 @media (max-width:520px){.cards{grid-template-columns:minmax(0,1fr)}.face{min-height:64px}}
 .memo-title{white-space:normal}
 @media (min-width:761px) and (max-width:999px){.shelf.carousel{width:min(100%,260px)}}
+.vtitle{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 7px;background:linear-gradient(transparent,rgba(20,18,15,.78));color:#FBF8EF;font:700 1rem/1.2 var(--hand);text-align:left;text-shadow:0 1px 2px rgba(0,0,0,.5)}

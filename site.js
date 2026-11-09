@@ -200,9 +200,9 @@
   // Music
   document.getElementById("tapes").innerHTML = SITE.music.length ? SITE.music.map(function (t) {
     var player = t.youtube
-      ? '<a class="thumb" href="https://www.youtube.com/watch?v=' + esc(t.youtube) + '" target="_blank" rel="noopener" aria-label="Watch ' + esc(t.title || "the video") + ' on YouTube"><img src="https://i.ytimg.com/vi/' + esc(t.youtube) + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'"><span class="play" aria-hidden="true"></span></a>'
+      ? '<a class="thumb" href="https://www.youtube.com/watch?v=' + esc(t.youtube) + '" target="_blank" rel="noopener" aria-label="Watch ' + esc(t.title || "the video") + ' on YouTube"><img src="https://i.ytimg.com/vi/' + esc(t.youtube) + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'"><span class="play" aria-hidden="true"></span>' + (t.title ? '<span class="vtitle">' + esc(t.title) + "</span>" : "") + '</a>'
       : '<video controls preload="none" src="' + esc(t.file) + '"' + (t.poster ? ' poster="' + esc(t.poster) + '"' : "") + "></video>";
-    return '<figure class="tape">' + player + caption(t) + "</figure>";
+    return '<figure class="tape">' + player + (t.youtube ? "" : caption(t)) + "</figure>";
   }).join("") : '<div class="soon"><svg viewBox="0 0 160 120" aria-hidden="true"><circle cx="50" cy="78" r="30"/><circle cx="50" cy="78" r="5"/><path d="M76 62 150 22M142 14l12 16M60 96h-20M72 72l6-3"/></svg><p>Clips on the way.</p></div>';
 
   // Voice memo: a play button, a waveform you can click to jump, and the time.

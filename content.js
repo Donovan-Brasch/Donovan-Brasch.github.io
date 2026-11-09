@@ -198,8 +198,8 @@ const SITE = {
   },
 
   music: [
-    { title: "", note: "", youtube: "kZUsMig4HII" },
-    { title: "", note: "", youtube: "N72dS7IlPpY" },
+    { title: "Southern Nights", note: "", youtube: "kZUsMig4HII" },
+    { title: "April Come She Will", note: "", youtube: "N72dS7IlPpY" },
   ],
 
   // CERAMICS
