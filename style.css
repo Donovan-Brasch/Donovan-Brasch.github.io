@@ -403,3 +403,5 @@ fieldset input:focus-visible+span{outline:2px solid var(--pine);outline-offset:2
 .bio2{margin-top:.6em}
 .mytake{margin:12px 0 4px;padding:8px 14px;border-left:3px solid var(--pine);background:rgba(188,210,177,.25);border-radius:0 6px 6px 0;font:500 1.02rem/1.45 var(--hand);color:var(--ink)}
 #showbody .mytake{margin-top:24px}
+.face.back i{display:block;margin-top:.45em;font:500 .8rem/1.35 var(--hand);font-style:normal;color:var(--ink)}
+.flip,.flip-in{height:100%}

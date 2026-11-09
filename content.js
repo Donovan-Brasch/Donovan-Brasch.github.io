@@ -28,11 +28,11 @@ const SITE = {
   recsEndpoint: "",
 
   // Your picks, shown on the three flip cards.
-  // "link" is optional and makes the title clickable.
+  // "note" is a short line about why. "link" is optional and makes the title clickable.
   myRecs: {
-    book:  { title: "", by: "", link: "" },
-    music: { title: "", by: "", link: "" },
-    film:  { title: "", by: "", link: "" },
+    book:  { title: "The Silent Patient", by: "Alex Michaelides", note: "My favorite book I've read in 2026. Keeps you on your toes.", link: "" },
+    music: { title: "Sylvie", by: "", note: "I love their Laurel Canyon, '70s-esque sound. Their self-titled first album is my favorite, but their new one is great too.", link: "" },
+    film:  { title: "The Way Way Back", by: "", note: "Got a lot of love for this movie and its soundtrack.", link: "" },
   },
 
   // TOP SHOW. The ticket stub under Back o' House.
