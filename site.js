@@ -286,7 +286,12 @@
   document.querySelectorAll(".flip").forEach(function (b) {
     b.addEventListener("click", function (e) {
       if (e.target.closest("a")) return;
-      b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+      if (b.classList.contains("turning")) return;
+      b.classList.add("turning");
+      setTimeout(function () {
+        b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+        b.classList.remove("turning");
+      }, 170);
     });
   });
 
