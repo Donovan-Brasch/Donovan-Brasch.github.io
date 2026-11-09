@@ -81,9 +81,8 @@
   var songs = function (list, start) { return '<ol class="setlist" style="counter-reset:s ' + start + '">' + list.map(function (t) { return "<li><span>" + esc(t) + (t === show.favorite ? ' <span class="fav" title="My favorite song of the night">★</span>' : "") + "</span></li>"; }).join("") + "</ol>"; };
   document.getElementById("showbody").innerHTML = '<h2 class="show-title" id="showtitle">' + esc(show.artist) + '</h2><p class="show-meta">' + esc(show.date) + " &middot; " + esc(show.venue) + " &middot; " + esc(show.city) + "</p>" +
     '<p class="placed">Placed<b>#' + esc(show.rank) + "</b>on my list</p>" +
-    (show.comment ? '<p class="mytake">' + esc(show.comment) + "</p>" : "") +
     '<div class="show-cols"><div><p class="show-h">Setlist</p>' + songs(show.setlist, 0) + '<p class="encore">Encore</p>' + songs(show.encore, show.setlist.length) + '<p class="source"><span class="fav">★</span> My favorite of the night. Setlist from setlist.fm</p></div><div><p class="show-h">From the night</p><div class="media">' +
-    (show.media.length ? show.media.map(function (m) { return m.video ? '<video controls preload="none" src="' + esc(m.video) + '"></video>' : '<img src="' + esc(m.photo) + '" alt="' + esc(show.artist) + ' at the ' + esc(show.venue) + '" loading="lazy">'; }).join("") : '<div class="blank">Photo soon</div><div class="blank">Video soon</div>') + "</div></div></div>";
+    (show.media.length ? show.media.map(function (m) { return m.video ? '<video controls preload="none" src="' + esc(m.video) + '"></video>' : '<img src="' + esc(m.photo) + '" alt="' + esc(show.artist) + ' at the ' + esc(show.venue) + '" loading="lazy">'; }).join("") : '<div class="blank">Photo soon</div><div class="blank">Video soon</div>') + "</div>" + (show.comment ? '<p class="mytake">' + esc(show.comment) + "</p>" : "") + "</div></div>";
 
   // Hike dashboard
   var hike = SITE.hike, R = hike.route;
