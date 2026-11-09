@@ -189,6 +189,14 @@ const SITE = {
   //   note: "Who played and where",
   //   youtube: "dQw4w9WgXcQ",
   // },
+  // VOICE MEMO under the videos. Put the audio file in media/music.
+  memo: {
+    title: "Day Is Done",
+    note: "With my awesome cellist friend Orestis",
+    file: "media/music/day-is-done.m4a",
+    peaks: [.12,.21,.29,.27,.34,.44,.44,.45,.6,.66,.76,.67,.54,.56,.54,.68,.75,.79,.69,.69,.83,.61,.71,.8,.88,.88,.69,.69,.75,.68,.68,.77,.81,.79,.82,.87,.57,.78,.89,.66,.6,.78,.82,.78,.94,.84,.77,.71,.79,.86,.69,.9,.85,.76,.75,.75,.81,.85,.87,1.0,.85,.88,.28,.53],
+  },
+
   music: [
     { title: "", note: "", youtube: "kZUsMig4HII" },
     { title: "", note: "", youtube: "N72dS7IlPpY" },

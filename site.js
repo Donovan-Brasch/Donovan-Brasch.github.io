@@ -205,6 +205,40 @@
     return '<figure class="tape">' + player + caption(t) + "</figure>";
   }).join("") : '<div class="soon"><svg viewBox="0 0 160 120" aria-hidden="true"><circle cx="50" cy="78" r="30"/><circle cx="50" cy="78" r="5"/><path d="M76 62 150 22M142 14l12 16M60 96h-20M72 72l6-3"/></svg><p>Clips on the way.</p></div>';
 
+  // Voice memo: a play button, a waveform you can click to jump, and the time.
+  (function () {
+    var m = SITE.memo, box = document.getElementById("memo");
+    if (!m || !m.file) { box.remove(); return; }
+    var bars = (m.peaks || []).map(function (p, i) { return '<i style="--h:' + p + '"></i>'; }).join("");
+    box.innerHTML = '<button class="memo-play" type="button" aria-label="Play ' + esc(m.title) + '"><span></span></button>' +
+      '<div class="memo-main"><p class="memo-title"><b>' + esc(m.title) + "</b>" + (m.note ? " <span>" + esc(m.note) + "</span>" : "") + "</p>" +
+      '<div class="memo-wave" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">' + bars + "</div></div>" +
+      '<span class="memo-time">0:00</span><audio preload="metadata" src="' + esc(m.file) + '"></audio>';
+    var au = box.querySelector("audio"), btn = box.querySelector(".memo-play"), wave = box.querySelector(".memo-wave"), time = box.querySelector(".memo-time"), ticks = wave.children;
+    function fmt(t) { t = Math.max(0, Math.floor(t || 0)); return Math.floor(t / 60) + ":" + ("0" + (t % 60)).slice(-2); }
+    function paint() {
+      var f = au.duration ? au.currentTime / au.duration : 0;
+      for (var i = 0; i < ticks.length; i++) ticks[i].classList.toggle("on", (i + 0.5) / ticks.length <= f);
+      wave.setAttribute("aria-valuenow", Math.round(f * 100));
+      time.textContent = au.paused && !au.currentTime ? fmt(au.duration) : fmt(au.currentTime);
+    }
+    au.addEventListener("loadedmetadata", paint);
+    au.addEventListener("timeupdate", paint);
+    au.addEventListener("play", function () { box.classList.add("playing"); btn.setAttribute("aria-label", "Pause " + m.title); });
+    au.addEventListener("pause", function () { box.classList.remove("playing"); btn.setAttribute("aria-label", "Play " + m.title); });
+    au.addEventListener("ended", function () { au.currentTime = 0; paint(); });
+    btn.addEventListener("click", function () { if (au.paused) au.play(); else au.pause(); });
+    function seek(f) { if (au.duration) { au.currentTime = Math.max(0, Math.min(1, f)) * au.duration; paint(); } }
+    wave.addEventListener("click", function (e) { var r = wave.getBoundingClientRect(); seek((e.clientX - r.left) / r.width); });
+    wave.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); au.currentTime = Math.min(au.duration || 0, au.currentTime + 5); paint(); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); au.currentTime = Math.max(0, au.currentTime - 5); paint(); }
+    });
+    // Stop the song when its page closes
+    window.addEventListener("popstate", function () { au.pause(); });
+    document.addEventListener("click", function (e) { if (e.target.closest && e.target.closest(".tabs") ) au.pause(); }, true);
+  })();
+
   // Ceramics
   var shelf = document.getElementById("shelf");
   if (SITE.ceramics.length) {
