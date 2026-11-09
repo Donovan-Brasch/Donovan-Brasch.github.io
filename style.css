@@ -422,3 +422,13 @@ html,body{overflow-x:clip}
 .count{margin:8px 0 0;text-align:center;font:700 .95rem/1 var(--hand);color:var(--soft)}
 @media (max-width:760px){.arrow.a-prev{left:6px}.arrow.a-next{right:6px}}
 @media (prefers-reduced-motion:reduce){.slide{transition:none}}
+/* Music: clickable YouTube thumbnails */
+.tapes{grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:16px}
+.tape{border:1.5px solid var(--ink);border-radius:8px;overflow:hidden}
+.thumb{position:relative;display:block;aspect-ratio:16/9;background:var(--ink);overflow:hidden}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.thumb:hover img,.thumb:focus-visible img{transform:scale(1.04)}
+.play{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:rgba(251,248,239,.92);box-shadow:0 2px 8px rgba(0,0,0,.35);transition:transform .15s}
+.play::after{content:"";position:absolute;left:21px;top:16px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent var(--ink)}
+.thumb:hover .play,.thumb:focus-visible .play{transform:scale(1.08)}
+.tape figcaption:empty{display:none}

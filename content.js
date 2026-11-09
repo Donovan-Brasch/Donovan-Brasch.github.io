@@ -190,6 +190,8 @@ const SITE = {
   //   youtube: "dQw4w9WgXcQ",
   // },
   music: [
+    { title: "", note: "", youtube: "kZUsMig4HII" },
+    { title: "", note: "", youtube: "N72dS7IlPpY" },
   ],
 
   // CERAMICS
