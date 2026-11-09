@@ -206,9 +206,40 @@
   }).join("") : '<div class="soon"><svg viewBox="0 0 160 120" aria-hidden="true"><circle cx="50" cy="78" r="30"/><circle cx="50" cy="78" r="5"/><path d="M76 62 150 22M142 14l12 16M60 96h-20M72 72l6-3"/></svg><p>Clips on the way.</p></div>';
 
   // Ceramics
-  document.getElementById("shelf").innerHTML = SITE.ceramics.length ? SITE.ceramics.map(function (c) {
-    return '<figure class="pot"><img src="' + esc(c.photo) + '" alt="' + esc(c.title) + '" loading="lazy">' + caption(c) + "</figure>";
-  }).join("") : '<div class="soon"><svg viewBox="0 0 140 120" aria-hidden="true"><path d="M44 14h52M50 14c2 16-26 30-26 58 0 22 18 36 46 36s46-14 46-36c0-28-28-42-26-58"/><path d="M34 62c14 8 58 8 72 0"/></svg><p>Photos fresh out of the kiln soon.</p></div>';
+  var shelf = document.getElementById("shelf");
+  if (SITE.ceramics.length) {
+    shelf.className = "shelf carousel";
+    shelf.setAttribute("tabindex", "0");
+    shelf.setAttribute("aria-roledescription", "carousel");
+    shelf.setAttribute("aria-label", "Ceramics photos. Use the arrows to see the next one");
+    shelf.innerHTML = '<div class="slides">' + SITE.ceramics.map(function (c, i) {
+      return '<figure class="slide' + (i ? "" : " on") + '"><img src="' + esc(c.photo) + '" alt="' + esc(c.title) + '"' + (i > 1 ? ' loading="lazy"' : "") + ">" + (c.note ? "<figcaption>" + esc(c.note) + "</figcaption>" : "") + "</figure>";
+    }).join("") + '</div><button class="arrow a-prev" type="button" aria-label="Previous photo">&#8249;</button><button class="arrow a-next" type="button" aria-label="Next photo">&#8250;</button><p class="count" aria-live="polite"></p>';
+    var slides = shelf.querySelectorAll(".slide"), at = 0, count = shelf.querySelector(".count");
+    function go(n) {
+      slides[at].classList.remove("on");
+      at = (n + slides.length) % slides.length;
+      slides[at].classList.add("on");
+      count.textContent = (at + 1) + " / " + slides.length;
+    }
+    go(0);
+    shelf.querySelector(".a-prev").addEventListener("click", function () { go(at - 1); });
+    shelf.querySelector(".a-next").addEventListener("click", function () { go(at + 1); });
+    shelf.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(at - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); go(at + 1); }
+    });
+    var x0 = null;
+    shelf.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    shelf.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) go(at + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+  } else {
+    shelf.innerHTML = '<div class="soon"><svg viewBox="0 0 140 120" aria-hidden="true"><path d="M44 14h52M50 14c2 16-26 30-26 58 0 22 18 36 46 36s46-14 46-36c0-28-28-42-26-58"/><path d="M34 62c14 8 58 8 72 0"/></svg><p>Photos fresh out of the kiln soon.</p></div>';
+  }
 
   // My picks
   var LABELS = { book: ["Book"], music: ["Music"], film: ["Film"] };

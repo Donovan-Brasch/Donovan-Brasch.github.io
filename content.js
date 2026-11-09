@@ -195,7 +195,8 @@ const SITE = {
 
   // CERAMICS
   // Put photos in media/ceramics, then add a block for each piece.
-  // "note" is optional.
+  // They show one at a time with arrows, in this order. "title" describes the photo
+  // for screen readers. Add "note" to show a caption under it.
   //
   // {
   //   photo: "media/ceramics/mug.jpg",
@@ -203,5 +204,11 @@ const SITE = {
   //   note: "Speckled stoneware",
   // },
   ceramics: [
+    { photo: "media/ceramics/piece-1.jpg", title: "Red mugs and a wide speckled bowl I made" },
+    { photo: "media/ceramics/piece-2.jpg", title: "A blue mug I made" },
+    { photo: "media/ceramics/piece-3.jpg", title: "Two green bowls I made" },
+    { photo: "media/ceramics/piece-4.jpg", title: "A mug fresh off the wheel, before firing" },
+    { photo: "media/ceramics/piece-5.jpg", title: "A small pitcher I threw, in my hand" },
+    { photo: "media/ceramics/piece-6.jpg", title: "A brown cup I made, full of coffee" },
   ],
 };
