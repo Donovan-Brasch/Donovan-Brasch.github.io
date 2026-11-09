@@ -447,3 +447,19 @@ html,body{overflow-x:clip}
 .memo-wave:focus-visible{box-shadow:0 0 0 3px rgba(59,97,82,.35);border-radius:4px}
 .memo-time{flex:none;min-width:2.6em;text-align:right;font:600 .95rem/1 var(--hand);color:var(--soft);font-variant-numeric:tabular-nums}
 @media (max-width:760px){.memo{border-radius:16px}.memo-title{white-space:normal}}
+/* Ceramics: photo and note side by side so it matches the Music card */
+@media (min-width:1000px){
+  .half.clay{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"t t" "p s";column-gap:22px;align-content:start;align-items:start}
+  .clay>h3{grid-area:t}
+  .clay>.say{grid-area:s;margin-top:2px;font-size:1.05rem;line-height:1.5}
+  .clay>.shelf{grid-area:p}
+  .shelf.carousel{width:clamp(200px,20vw,270px);margin:10px 0 0}
+  .clay .arrow{width:38px;height:38px;font-size:1.7rem;top:calc(50% - 26px)}
+  .clay .arrow.a-prev{left:-12px}.clay .arrow.a-next{right:-12px}
+}
+.jump a{position:relative}.jump a::after{display:none}
+#stub{container-type:inline-size}
+@container (max-width:350px){.stub-copy>.stub-admit{display:none}}
+@media (max-width:520px){.cards{grid-template-columns:minmax(0,1fr)}.face{min-height:64px}}
+.memo-title{white-space:normal}
+@media (min-width:761px) and (max-width:999px){.shelf.carousel{width:min(100%,260px)}}
