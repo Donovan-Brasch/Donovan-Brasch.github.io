@@ -406,3 +406,5 @@ fieldset input:focus-visible+span{outline:2px solid var(--pine);outline-offset:2
 .face.back i{display:block;margin-top:.45em;font:500 .8rem/1.35 var(--hand);font-style:normal;color:var(--ink)}
 .flip,.flip-in{height:100%}
 .face.back .kind{font-style:normal;font-weight:400}
+.snaphint span{display:block}.snaphint .me-hint{margin-bottom:6px;color:var(--ink)}
+html,body{overflow-x:clip}
