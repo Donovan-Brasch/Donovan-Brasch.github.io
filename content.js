@@ -214,6 +214,7 @@ const SITE = {
   // },
   ceramics: [
     { photo: "media/ceramics/piece-1.jpg", title: "Red mugs and a wide speckled bowl I made" },
+    { photo: "media/ceramics/piece-7.jpg", title: "Two blue mugs I made" },
     { photo: "media/ceramics/piece-2.jpg", title: "A blue mug I made" },
     { photo: "media/ceramics/piece-3.jpg", title: "Two green bowls I made" },
     { photo: "media/ceramics/piece-4.jpg", title: "A mug fresh off the wheel, before firing" },
